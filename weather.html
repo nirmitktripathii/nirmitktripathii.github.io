@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard - Nirmit K. Tripathii</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #0a0a12; color: #fff; font-family: 'DM Sans', sans-serif; }
+        .container { max-width: 800px; margin: 100px auto; padding: 40px; background: rgba(255,255,255,0.05); border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .search-box { display: flex; gap: 10px; margin-bottom: 30px; }
+        input { flex: 1; padding: 12px 20px; border-radius: 10px; border: none; background: rgba(255,255,255,0.1); color: #fff; }
+        button { padding: 12px 24px; border-radius: 10px; border: none; background: var(--accent); color: #fff; cursor: pointer; font-weight: 600; }
+        .weather-info { text-align: center; }
+        .temp { font-size: 4rem; font-weight: 700; margin: 20px 0; color: var(--accent2); }
+        .city { font-size: 2rem; margin-bottom: 10px; }
+        .desc { font-size: 1.2rem; opacity: 0.8; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Portfolio</a>
+        <div class="weather-info">
+            <h2 class="city" id="cityName">Enter a City</h2>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Search city...">
+                <button onclick="getWeather()">Search</button>
+            </div>
+            <div id="weatherContent" style="display:none;">
+                <div class="temp" id="temperature">--°C</div>
+                <div class="desc" id="description">Cloudy</div>
+                <div class="details" style="display:flex; justify-content: space-around; margin-top: 40px;">
+                    <div><i class="fas fa-tint"></i> Humidity: <span id="humidity">--%</span></div>
+                    <div><i class="fas fa-wind"></i> Wind: <span id="wind">-- km/h</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function getWeather() {
+            const city = document.getElementById('cityInput').value;
+            if (!city) return;
+            document.getElementById('weatherContent').style.display = 'block';
+            document.getElementById('cityName').innerText = city;
+            document.getElementById('temperature').innerText = "24°C";
+            document.getElementById('description').innerText = "Sunny";
+            document.getElementById('humidity').innerText = "45%";
+            document.getElementById('wind').innerText = "12 km/h";
+        }
+    </script>
+</body>
+</html>

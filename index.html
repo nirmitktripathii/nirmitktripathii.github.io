@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nirmit K. Tripathii - AI/ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d8eaa222fe.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <img src="images/logo.png" class="logo-img" alt="Logo"/>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-burger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Open to new opportunities</div>
+    <h1 class="hero-title">
+      Hi, I'm <span class="name">Nirmit K. Tripathii</span>
+      <span class="line2">AI / ML Engineer &amp; Researcher</span>
+    </h1>
+    <p class="hero-desc">Building production-grade AI systems — agentic LLM pipelines, multimodal RAG, sports video analytics, and legal AI. 3+ years of hands-on ML engineering.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary"><i class="fas fa-code"></i> View Projects</a>
+      <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-num">10+</div><div class="stat-label">AI Projects Shipped</div></div>
+      <div><div class="stat-num">22</div><div class="stat-label">Indic Languages</div></div>
+      <div><div class="stat-num">CVPR</div><div class="stat-label">2025 Workshop</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="reveal">
+    <div class="section-tag">Who I am</div>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-img-wrap">
+      <img src="images/user.png" class="about-img" alt="Nirmit K. Tripathii"/>
+      <div class="about-img-frame"></div>
+    </div>
+    <div class="about-body">
+      <p>I'm a certified AI/ML Engineer with a M.Tech in Modeling &amp; Simulation and 3+ years of industry experience building intelligent systems across NLP, LLMs, multimodal ML, and agentic AI.</p>
+      <p>My work spans production deployments at Chetu India and BLU PARROT — including an agentic event-commerce chatbot, a Video-to-SOP multimodal pipeline, legal AI for Indian law, sports action anticipation research, and a published paper at CVPR 2025 CVSports Workshop.</p>
+      <p>Currently at <strong style="color:var(--accent)">Chetu India</strong> as AI/ML Software Engineer.</p>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event,'tab-skills')">Skills</button>
+        <button class="tab-btn" onclick="openTab(event,'tab-experience')">Experience</button>
+        <button class="tab-btn" onclick="openTab(event,'tab-education')">Education</button>
+      </div>
+      <div class="tab-panel active" id="tab-skills">
+        <ul>
+          <li><strong>Machine Learning</strong><span>Random Forests, XGBoost, SVM, Clustering, Regression, Classification</span></li>
+          <li><strong>NLP &amp; LLMs</strong><span>RAG variants, LangChain, LangGraph, Fine-tuning, ASR, NMT, Summarization</span></li>
+          <li><strong>Deep Learning &amp; Vision</strong><span>CNNs, Transformers, Video Understanding, ImageBind, FUTR, T-DEED</span></li>
+          <li><strong>Agentic AI</strong><span>LangGraph StateGraph, Multi-node agents, Tool use, LangSmith observability</span></li>
+        </ul>
+      </div>
+      <div class="tab-panel" id="tab-experience">
+        <ul>
+          <li><strong>AI/ML Software Engineer</strong><span>Chetu India &middot; Apr 2025 &ndash; Present</span></li>
+          <li><strong>AI/ML Engineer</strong><span>BLU PARROT &middot; Jan 2024 &ndash; Apr 2025</span></li>
+          <li><strong>Subject Matter Expert: AI/ML</strong><span>House of Coutons &middot; Nov 2023 &ndash; Jan 2024</span></li>
+          <li><strong>AI/ML Programmer</strong><span>HRBOTICS &middot; Apr 2022 &ndash; Mar 2023</span></li>
+          <li><strong>Football Data Analyst</strong><span>Boomer 11 &middot; Nov 2021 &ndash; Mar 2022</span></li>
+        </ul>
+      </div>
+      <div class="tab-panel" id="tab-education">
+        <ul>
+          <li><strong>M.Tech &mdash; Modeling &amp; Simulation</strong><span>Savitribai Phule Pune University &middot; 2019&ndash;2022</span></li>
+          <li><strong>B.Tech &mdash; Electrical Engineering</strong><span>Pandit Deendayal Petroleum University &middot; 2014&ndash;2018</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="reveal">
+    <div class="section-tag">What I do</div>
+    <h2 class="section-title">Core Competencies</h2>
+    <p class="section-sub">From classical ML to cutting-edge multimodal AI &mdash; built and shipped in production.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-robot"></i></div><h3>Agentic AI &amp; LLMs</h3><p>LangGraph multi-node agents, RAG variants (Naive/LightRAG/CRAG/VideoRAG), LangSmith tracing, OpenAI &amp; Gemini APIs, FastAPI.</p></div>
+    <div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-brain"></i></div><h3>Deep Learning &amp; Vision</h3><p>CNNs, Transformers, VideoRAG, ImageBind multimodal embeddings, OpenCV, FUTR anticipation models, T-DEED temporal spotting.</p></div>
+    <div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-language"></i></div><h3>NLP &amp; Speech</h3><p>BERT variants (InLegalBERT, XLM-RoBERTa, IndicBERT), FasterWhisper ASR, multilingual NMT, text classification, summarization.</p></div>
+    <div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-database"></i></div><h3>Data &amp; MLOps</h3><p>FAISS, HNSWLib, Neo4j, NetworkX, HuggingFace, W&amp;B, Python scraping, Azure OCR, data engineering pipelines.</p></div>
+    <div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-futbol"></i></div><h3>Sports AI</h3><p>Expected Goals (xG) modelling (89.77% accuracy), FAANTRA ball action anticipation (CVPR 2025), pass network analysis.</p></div>
+    <div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-scale-balanced"></i></div><h3>Legal AI</h3><p>LegalGPT: case summarization, 150+ contract types classification, compliance AI, Opennyai, InCaseLawBERT fine-tuning.</p></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="reveal">
+    <div class="section-tag">Where I've worked</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Building AI that ships &mdash; from startup chaos to enterprise scale.</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="tl-meta"><span class="tl-company">Chetu India</span><span class="tl-date">Apr 2025 &ndash; Present</span></div>
+      <div class="tl-title">AI/ML Software Engineer</div>
+      <div class="tl-items">
+        <div class="tl-item">Built DIGEST &mdash; agentic LangGraph chatbot for event discovery &amp; ticket commerce with full Automatiq B2B transaction lifecycle.</div>
+        <div class="tl-item">Architected SOP CHATBOT &mdash; multimodal VideoRAG pipeline converting screen-recorded workflows to structured SOPs via ImageBind, Gemini &amp; LangSmith.</div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot" style="background:var(--accent3);box-shadow:0 0 12px rgba(123,97,255,0.5)"></div>
+      <div class="tl-meta"><span class="tl-company" style="color:var(--accent3)">BLU PARROT</span><span class="tl-date">Jan 2024 &ndash; Apr 2025</span></div>
+      <div class="tl-title">AI/ML Engineer</div>
+      <div class="tl-items">
+        <div class="tl-item">LegalGPT &mdash; full RAG pipeline for Indian legal research, contract analysis (150+ types), and compliance checking.</div>
+        <div class="tl-item">Hindi ASR portal with SoTA Conformer-CTC + Gemini NLP call summarization.</div>
+        <div class="tl-item">22-language Indic translation portal (IndicBERT + Indic-TransV2).</div>
+        <div class="tl-item">Promoted to Project Lead for UK real-estate multimodal regression model.</div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot" style="background:var(--accent2);box-shadow:0 0 12px rgba(255,45,107,0.5)"></div>
+      <div class="tl-meta"><span class="tl-company" style="color:var(--accent2)">HRBOTICS</span><span class="tl-date">Apr 2022 &ndash; Mar 2023</span></div>
+      <div class="tl-title">AI/ML Programmer</div>
+      <div class="tl-items"><div class="tl-item">Multi-threaded Python scrapers for NCR commercial data and automated LinkedIn hiring workflows via Selenium + BeautifulSoup.</div></div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot" style="background:#ffd700;box-shadow:0 0 12px rgba(255,215,0,0.5)"></div>
+      <div class="tl-meta"><span class="tl-company" style="color:#ffd700">BOOMER 11</span><span class="tl-date">Nov 2021 &ndash; Mar 2022</span></div>
+      <div class="tl-title">Football Data Analyst</div>
+      <div class="tl-items"><div class="tl-item">Expected Goals (xG) model with 89.77% accuracy using RF Classifier &mdash; published research paper.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="reveal">
+    <div class="section-tag">What I've built</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-sub">Production systems, research implementations, and ML experiments.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-emoji" style="background:linear-gradient(135deg,#0a2012,#15200a)">
+        <img src="images/plant_disease.png" alt="Plant Disease Classification" style="width:100%;height:100%;object-fit:cover;opacity:0.6">
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span class="tag">Deep Learning</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span></div>
+        <h3>Plant Disease Classification</h3>
+        <p>CNN-based mobile diagnostic tool for identifying crop diseases in real-time. Achieved 98% accuracy on the PlantVillage dataset.</p>
+        <div class="project-links">
+          <a href="https://github.com/nirmitktripathii/plant_disease_classification" target="_blank">View Repo →</a>
+          <a href="#" class="btn-demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:0.1s">
+      <div class="project-emoji" style="background:linear-gradient(135deg,#0a1520,#0a0a20)">
+        <img src="images/xg_model.png" alt="Football Analytics xG" style="width:100%;height:100%;object-fit:cover;opacity:0.6">
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span class="tag">ML</span><span class="tag">XGBoost</span><span class="tag">Sports Analytics</span></div>
+        <h3>Football Analytics — xG Model</h3>
+        <p>Advanced Expected Goals (xG) model trained on 100k+ shots to evaluate scoring probability based on spatial and temporal features.</p>
+        <div class="project-links">
+          <a href="https://github.com/nirmitktripathii/Modeling-Shot-Quality-Using-Expected-Goals-Metric" target="_blank">View Repo →</a>
+          <a href="#" class="btn-demo"><i class="fas fa-external-link-alt"></i> Try API</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:0.2s">
+      <div class="project-emoji" style="background:linear-gradient(135deg,#20150a,#200a0a)">
+        <img src="images/cv_jd_matcher.png" alt="CV-JD Matcher" style="width:100%;height:100%;object-fit:cover;opacity:0.6">
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span class="tag">NLP</span><span class="tag">Transformers</span><span class="tag">BERT</span></div>
+        <h3>CV-JD Matcher</h3>
+        <p>Semantic matching engine using BERT embeddings to rank candidate resumes against job descriptions with high precision.</p>
+        <div class="project-links">
+          <a href="https://github.com/nirmitktripathii/PortfolioSite" target="_blank">View Repo →</a>
+          <a href="matcher.html" class="btn-demo"><i class="fas fa-search-plus"></i> Launch Matcher</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:0.3s">
+      <div class="project-emoji" style="background:linear-gradient(135deg,#15200a,#0a201a)">
+        <img src="images/weather_app.png" alt="Weather Dashboard" style="width:100%;height:100%;object-fit:cover;opacity:0.6">
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span class="tag">Frontend</span><span class="tag">API Integration</span><span class="tag">JS</span></div>
+        <h3>Weather Dashboard</h3>
+        <p>Dynamic weather application featuring real-time data fetching, location-based services, and interactive forecasting charts.</p>
+        <div class="project-links">
+          <a href="https://github.com/nirmitktripathii/nirmitktripathii.github.io" target="_blank">View Repo →</a>
+          <a href="weather.html" class="btn-demo"><i class="fas fa-cloud-sun"></i> Open Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <div class="section-tag">Let's talk</div>
+    <h2 class="section-title">Contact Me</h2>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <h3>Open to new opportunities</h3>
+      <div class="contact-item"><i class="fas fa-paper-plane"></i>nirmitktripathii@yahoo.com</div>
+      <div class="contact-item"><i class="fas fa-phone"></i>9528006968</div>
+      <div class="contact-item"><i class="fas fa-map-marker-alt"></i>Delhi NCR, India</div>
+      <div class="contact-item"><i class="fas fa-briefcase"></i>CTC: 8 LPA &rarr; Expected: 15 LPA</div>
+      <div class="contact-item"><i class="fas fa-clock"></i>Notice: 90 Days (Negotiable)</div>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/nirmitk-tripathii-553a92158/" class="social-btn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/nirmitktripathii" class="social-btn" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <form class="contact-form" name="submit-to-google-sheet">
+      <input type="text" name="Name" placeholder="Your Name" required/>
+      <input type="email" name="Mail" placeholder="Your Email" required/>
+      <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <span id="form-msg"></span>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>Copyright &copy; 2025 Nirmit K. Tripathii &nbsp;&middot;&nbsp; Made with <span>&#9829;</span> by Nirmit</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
