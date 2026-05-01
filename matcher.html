@@ -24,6 +24,7 @@
             <h2>AI Resume Matcher</h2>
             <p>Compare your CV with a Job Description using DistilBERT Embeddings.</p>
         </div>
+        
         <div class="upload-section">
             <div class="drop-zone" id="resumeZone">
                 <i class="fas fa-file-pdf"></i>
@@ -36,24 +37,79 @@
                 <input type="file" id="jdInput" hidden accept=".pdf">
             </div>
         </div>
+        
         <button class="btn-match" onclick="runMatch()">Calculate Match Score</button>
+        
         <div class="result-card" id="resultCard">
             <h3>Match Results</h3>
             <div class="score-circle" id="scoreValue">85%</div>
             <p id="scoreMessage">Great match! Your skills strongly align with this role.</p>
         </div>
     </div>
+
     <script>
-        function runMatch() {
+        const API_URL = 'YOUR_CLOUD_RUN_URL/match'; // Replace with your deployed API URL
+
+        async function runMatch() {
+            const resumeFile = document.getElementById('resumeInput').files[0];
+            const jdFile = document.getElementById('jdInput').files[0];
             const resultCard = document.getElementById('resultCard');
             const scoreValue = document.getElementById('scoreValue');
-            resultCard.style.display = 'block';
-            const mockScore = Math.floor(Math.random() * 40) + 60;
-            scoreValue.innerText = mockScore + "%";
-            if(mockScore > 80) scoreValue.style.borderColor = "#00ff88";
-            else if(mockScore > 60) scoreValue.style.borderColor = "#ffd700";
-            else scoreValue.style.borderColor = "#ff2d6b";
+            const scoreMessage = document.getElementById('scoreMessage');
+
+            if (!resumeFile || !jdFile) {
+                alert("Please upload both Resume and Job Description.");
+                return;
+            }
+
+            if (API_URL === 'YOUR_CLOUD_RUN_URL/match') {
+                // Demo mode logic
+                resultCard.style.display = 'block';
+                const mockScore = Math.floor(Math.random() * 40) + 60;
+                scoreValue.innerText = mockScore + "%";
+                scoreMessage.innerText = "Demo Mode: Connect your API to see real analysis.";
+                return;
+            }
+
+            try {
+                scoreValue.innerText = "...";
+                resultCard.style.display = 'block';
+
+                const formData = new FormData();
+                formData.append('resume', resumeFile);
+                formData.append('jd', jdFile);
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    const score = Math.round(data.match_score * 100);
+                    scoreValue.innerText = score + "%";
+                    if (score > 80) {
+                        scoreValue.style.borderColor = "#00ff88";
+                        scoreMessage.innerText = "Excellent match! Your profile is highly compatible.";
+                    } else if (score > 60) {
+                        scoreValue.style.borderColor = "#ffd700";
+                        scoreMessage.innerText = "Good match. Some areas for optimization found.";
+                    } else {
+                        scoreValue.style.borderColor = "#ff2d6b";
+                        scoreMessage.innerText = "Lower compatibility. Consider tailoring your resume.";
+                    }
+                } else {
+                    scoreValue.innerText = "Error";
+                    scoreMessage.innerText = data.error || "Failed to process files.";
+                }
+            } catch (error) {
+                scoreValue.innerText = "Error";
+                scoreMessage.innerText = "Could not connect to API.";
+                console.error(error);
+            }
         }
+
+        // Handle file inputs
         document.getElementById('resumeZone').onclick = () => document.getElementById('resumeInput').click();
         document.getElementById('jdZone').onclick = () => document.getElementById('jdInput').click();
     </script>
