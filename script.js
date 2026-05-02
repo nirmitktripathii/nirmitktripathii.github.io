@@ -35,3 +35,17 @@ function reveal() {
     }
 }
 reveal();
+
+function openTab(evt, tabName) {
+    var i, tabContent, tabBtns;
+    tabContent = document.getElementsByClassName("tab-panel");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].classList.remove("active");
+    }
+    tabBtns = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
