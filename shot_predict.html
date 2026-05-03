@@ -212,27 +212,38 @@
                 
                 const data = await response.json();
                 
-                const xg = data.shot_quality;
-                xgValue.innerText = xg.toFixed(3);
-                
-                if (data.goal_prediction === 1) {
-                    predValue.innerText = "GOAL";
-                    predBadge.innerText = "High Probability Chance";
-                    predBadge.style.background = "rgba(0, 255, 136, 0.2)";
-                    predBadge.style.color = "var(--accent)";
-                } else {
-                    predValue.innerText = "NO GOAL";
-                    predBadge.innerText = "Low Probability Shot";
-                    predBadge.style.background = "rgba(255, 45, 107, 0.2)";
-                    predBadge.style.color = "var(--accent2)";
+                if (!response.ok) {
+                    throw new Error(data.error || `Server Error: ${response.status}`);
                 }
                 
-                // Visualization update: marker color based on xG
-                marker.style.background = xg > 0.3 ? "var(--accent)" : (xg > 0.1 ? "#ffcc00" : "var(--accent2)");
+                const xg = data.shot_quality;
+                if (xg !== undefined && xg !== null) {
+                    xgValue.innerText = xg.toFixed(3);
+                    
+                    if (data.goal_prediction === 1) {
+                        predValue.innerText = "GOAL";
+                        predBadge.innerText = "High Probability Chance";
+                        predBadge.style.background = "rgba(0, 255, 136, 0.2)";
+                        predBadge.style.color = "var(--accent)";
+                    } else {
+                        predValue.innerText = "NO GOAL";
+                        predBadge.innerText = "Low Probability Shot";
+                        predBadge.style.background = "rgba(255, 45, 107, 0.2)";
+                        predBadge.style.color = "var(--accent2)";
+                    }
+                    
+                    // Visualization update: marker color based on xG
+                    marker.style.background = xg > 0.3 ? "var(--accent)" : (xg > 0.1 ? "#ffcc00" : "var(--accent2)");
+                } else {
+                    throw new Error("API returned malformed data: shot_quality missing");
+                }
                 
             } catch (error) {
                 console.error(error);
-                alert("API Connection Error. Please ensure the Hugging Face Space is active.");
+                alert(`Prediction Error: ${error.message}`);
+                xgValue.innerText = "--";
+                predValue.innerText = "ERROR";
+                predBadge.innerText = "Check API status";
             } finally {
                 predictBtn.disabled = false;
                 predictBtn.innerText = "Predict xG Probability";
