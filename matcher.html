@@ -141,7 +141,12 @@
                     method: 'POST',
                     body: formData
                 });
+                
                 const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || `Server Error: ${response.status}`);
+                }
 
                 if (data.status === 'success') {
                     resultCard.style.display = 'grid';
