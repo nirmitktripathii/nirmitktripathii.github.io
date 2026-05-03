@@ -27,13 +27,17 @@
         .marker { position: absolute; width: 16px; height: 16px; background: #fff; border: 3px solid var(--accent); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 20px var(--accent); display: none; z-index: 10; transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         
         .dashboard { display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-top: 30px; }
-        .controls { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .input-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
-        select { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: #0f0f1a; color: #fff; font-size: 1rem; appearance: none; }
+        .controls { display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-end; justify-content: center; }
+        .control-group { text-align: left; }
+        .control-group label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; opacity: 0.7; }
+        select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px 20px; border-radius: 10px; outline: none; cursor: pointer; font-family: inherit; width: 150px; }
+        select option { background: #0f172a; color: #fff; }
         
-        .btn-predict { width: 100%; padding: 18px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--accent), #00ccff); color: #000; cursor: pointer; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,255,136,0.2); }
-        .btn-predict:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,255,136,0.4); }
+        .btn-predict { padding: 12px 30px; border-radius: 10px; border: none; background: var(--accent); color: #fff; cursor: pointer; font-weight: 700; transition: 0.3s; }
+        .btn-predict:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,255,136,0.3); }
+        .btn-predict:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .result-display { margin-top: 20px; text-align: center; opacity: 0.3; transition: 0.5s; }
         
         .results { display: flex; flex-direction: column; gap: 20px; }
         .stat-card { padding: 25px; background: rgba(255,255,255,0.03); border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; }
