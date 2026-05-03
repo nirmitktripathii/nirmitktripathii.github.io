@@ -36,6 +36,19 @@ function reveal() {
 }
 reveal();
 
+// Smooth Scroll for internal links and correct navigation for external ones
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
 function openTab(evt, tabName) {
     var i, tabContent, tabBtns;
     tabContent = document.getElementsByClassName("tab-panel");
